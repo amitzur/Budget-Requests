@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+	<title>פניות תקציביות</title>
+	<meta name="author" content="Amit Zur">
+    <link rel="stylesheet" type="text/css" href="stylesheets/screen.css"/>
+	<!-- Date: 2012-03-02 -->
+	<script src='javascripts/vendor/jquery-1.7.1.min.js'></script>
+	<script src='javascripts/vendor/handlebars-1.0.0.beta.6.js'></script>
+	<script src='javascripts/vendor/jquery-ui-1.8.18.custom.min.js'></script>
+	<script src='javascripts/vendor/jquery.ui.datepicker-he.js'></script>
+	<link rel="stylesheet" type="text/css" href="javascripts/vendor/css/ui-lightness/jquery-ui-1.8.18.custom.css"/>
+    <script src="javascripts/ksafim.js"></script>
+
+</head>
+<body dir='rtl'>
+	<div class='photo'>
+		<img src='pics/IMG_0104.jpg'/>
+        <img src='pics/IMG_0103.jpg'/>
+        <img src='pics/IMG_0105.jpg'/>
+		<img src='pics/IMG_0106.jpg'/>
+	</div>
+    <div class="divider" id="divider"></div>
+	<div class='form-wrap'>
+		<div class='form'>
+			<div class='title-icon'></div>
+			<h1 class='title'>אם כבר הגעת לכאן...</h1>
+			<h2 class='subtitle'>יהיה נחמד אם תואיל/י למלא את הפרטים הבאים בהתאם לתמונות מימין:</h2>
+			<div class='bakasha'>
+				<h3>בקשה להעברה תקציבית</h3>
+                <form action="thanks.html" method="POST">
+                    <div class='bakasha-details'>
+                        <div class='detail bakasha-date'>
+                            <label for='bakasha-date'>נתקבל בועדת הכספים:</label>
+                            <input type='text' id='bakasha-date' class='basasha-date' name='bakasha-date'/>
+                            <div class='question-mark'>
+                                <div class='explanation'>
+                                    <div class='explanation-img'></div>
+                                    <div class='spinner'></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class='detail bakasha-meeting-reason'>
+                            <label for='bakasha-meeting-reason'>סיבת הבקשה:</label>
+                            <select id='bakasha-meeting-reason' class='bakasha-meeting-reason' name='bakasha-meeting-reason'>
+                                <option>החלטת ממשלה</option>
+                                <option>עודפים תקציביים</option>
+                            </select>
+                            <div class='question-mark'>
+                                <div class='explanation'>
+                                    <div class='explanation-img'></div>
+                                    <div class='spinner'></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <input class='submit' type='submit' value='הגש בקשה'>
+                    <div class='pniyot'></div>
+                </form>
+				<div id='add-pniya' class='add-pniya' title='הוסף פנייה'>+</div>
+			</div>
+		</div>
+	</div>
+	
+	<script type="text/x-handlebar-template" id="detail-template">
+		<div class='detail'>
+			<label for="{{name}}">{{label}}</label>
+			<input type="text" value="{{value}}" id='{{name}}'/>
+		</div>
+	</script>
+
+	<script type="text/x-handlebar-template" id="haavara-template1">
+		<div class='haavara' id='haavara-{{id}}'>
+			{{#details haavaraDetails}}
+
+			{{/details}}
+		</div>
+	</script>
+    
+    <script type="text/x-handlebar-template" id="pniya-row-template">
+        <tr class="pniya-row">
+            <td><input type="text" name='prat-{{id}}-{{row}}'/></td>
+            <td>&nbsp;</td>
+            <td><span>מ-</span><br><span>ל-</span></td>
+            <td><input type="text" name="hotsaa-from-{{id}}-{{row}}"/><input type="text" name="hotsaa-to-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="hotsaa-mut-from-{{id}}-{{row}}"/><input type="text" name="hotsaa-mut-to-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="harshaa-from-{{id}}-{{row}}"/><input type="text" name="harshaa-to-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="ska-from-{{id}}-{{row}}"/><input type="text" name="ska-to-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="diff-hotsaa-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="diff-hotsaa-mut-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="diff-harshaa-{{id}}-{{row}}"/></td>
+            <td><input type="text" name="diff-ska-{{id}}-{{row}}"/></td>
+        </tr>
+    </script>
+	
+	<script type="text/x-handlebar-template" id="pniya-template">
+		<div class='pniya' id='pniya-{{id}}'>
+			<h4>פנייה</h4>
+			<div class='detail mispar-pniya'>
+				<label for="mispar-pniya-{{id}}">מספר פנייה:</label>
+				<input type="text" id='mispar-pniya-{{id}}' class='mispar-pniya'/>
+                <button class='start-filling'>יאללה, מתחילים</button>
+                <span class='enter-number'>יש להכניס מספר</span>
+				<div class='question-mark'>
+					<div class='explanation'>
+						<div class='explanation-img'></div>
+						<div class='spinner'></div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</script>
+
+    <script type="text/x-handlebar-template" id="pniya-table-template">
+        <table cellspacing=0 class='pniya-table' width="100%" id="pniya-table-{{id}}">
+            <thead>
+            <tr>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th>&nbsp;</th>
+                <th colspan=4>סכומי השינוי</th>
+            </tr>
+            <tr>
+                <th>מספר פרט</th>
+                <th>שם פרט</th>
+                <th>&nbsp;</th>
+                <th>הוצאה</th>
+                <th>הוצאה מותנית</th>
+                <th>הרשאה להתחייב</th>
+                <th>שכ"א</th>
+                <th>הוצאה</th>
+                <th>הוצאה מותנית</th>
+                <th>הרשאה להת'</th>
+                <th>שיא כח אדם</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class='add-row'>+</div>
+    </script>
+</body>
+</html>
