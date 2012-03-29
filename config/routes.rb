@@ -1,4 +1,8 @@
 Ksafim::Application.routes.draw do
+  resources :pniyas
+
+  resources :bakashas
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
