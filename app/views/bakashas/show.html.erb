@@ -1,0 +1,21 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Recv date:</b>
+  <%= @bakasha.recv_date %>
+</p>
+
+<p>
+  <b>Reason:</b>
+  <%= @bakasha.reason %>
+</p>
+
+<% @bakasha.pniyas.each do |pniya| %>
+<p>
+  <b>Mispar Pniya:</b>
+  <%= pniya.mispar %>
+</p>
+<% end %>
+
+<%= link_to 'Edit', edit_bakasha_path(@bakasha) %> |
+<%= link_to 'Back', bakashas_path %>

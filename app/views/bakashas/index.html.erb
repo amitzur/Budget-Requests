@@ -1,0 +1,25 @@
+<h1>Listing bakashas</h1>
+
+<table>
+  <tr>
+    <th>Recv date</th>
+    <th>Reason</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bakashas.each do |bakasha| %>
+  <tr>
+    <td><%= bakasha.recv_date %></td>
+    <td><%= bakasha.reason %></td>
+    <td><%= link_to 'Show', bakasha %></td>
+    <td><%= link_to 'Edit', edit_bakasha_path(bakasha) %></td>
+    <td><%= link_to 'Destroy', bakasha, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bakasha', new_bakasha_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  mispar: 1
+  bakasha_id: 1
+
+two:
+  mispar: 1
+  bakasha_id: 1

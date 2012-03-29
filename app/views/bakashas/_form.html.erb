@@ -1,0 +1,25 @@
+<%= form_for(@bakasha) do |f| %>
+  <% if @bakasha.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bakasha.errors.count, "error") %> prohibited this bakasha from being saved:</h2>
+
+      <ul>
+      <% @bakasha.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :recv_date %><br />
+    <%= f.date_select :recv_date %>
+  </div>
+  <div class="field">
+    <%= f.label :reason %><br />
+    <%= f.text_field :reason %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
