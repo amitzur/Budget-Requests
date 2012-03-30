@@ -1,0 +1,395 @@
+//@import "compass/reset";
+
+
+$light-orange: #FFF3B6;
+$banana		: #F5DB58;
+$turquise	: #016881;
+$dark-turq	: #024758;
+$navy		: #012D38;
+
+
+@mixin clearfix {
+    &:after {
+        content: ".";
+        visibility: hidden;
+        display: block;
+        clear: both;
+        line-height: 0;
+        height: 0;
+    }
+}
+
+@mixin userSelectNone {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+@mixin buttonGradient {
+    background-color: $banana;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($banana), color-stop(0.49, $banana), color-stop(0.5, $light-orange), to($light-orange));
+    background-image: -moz-linear-gradient(top center, $banana, $banana 49%, $light-orange 51%, $light-orange);
+}
+
+html {
+    height: 100%;
+    width: 100%;
+    font: 100% "Arial", sans-serif;
+}
+
+body {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    margin: 0;
+    @include userSelectNone;
+}
+
+h2 {
+    font-size: 1.2em;
+}
+
+h3, h4 {
+    margin: 0 0 10px 0;
+}
+
+$initialSidebarWidth: 360px;
+
+
+.photo {
+    height: 100%;
+    width: $initialSidebarWidth;
+    float: right;
+    background-color: $light-orange;
+    text-align: center;
+    overflow: auto;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($banana) , color-stop(0.2, $light-orange), to($light-orange));
+    background-image: -moz-linear-gradient(top center, $banana, $light-orange 20%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5DB58', endColorstr='#FFF3B6');
+
+    padding: 0 10px;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+
+    img {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
+
+
+.form-wrap {
+    position: absolute;
+    //right: $initialSidebarWidth;
+    right: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background-color: $banana;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    background-image: -webkit-gradient(linear, left top, left bottom, from($banana) , color-stop(0.2, $light-orange), to($light-orange));
+    background-image: -moz-linear-gradient(top center, $banana, $light-orange 20%);
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5DB58', endColorstr='#FFF3B6');
+
+    .form {
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+        padding: 15px;
+    }
+
+    .title {
+        background-color: $light-orange;
+        -webkit-border-radius: 15px 0 0 15px;
+        -moz-border-radius: 15px 0 0 15px;
+        border: 1px solid $dark-turq;
+        box-shadow: -5px 5px 5px $dark-turq;
+        margin-right: 70px;
+        color: $navy;
+    }
+
+    .subtitle {
+        color: $navy;
+    }
+
+    .title-icon {
+        background-image: url(../images/Document-icon.png);
+        width: 150px;
+        height: 150px;
+        background-size: 150px auto;
+        float: right;
+        position: relative;
+        top: -3px;
+        z-index: 1;
+    }
+
+
+    .detail {
+        @include clearfix;
+    }
+
+    .bakasha {
+        width: 100%;
+        border-radius: 10px;
+        border: 5px solid $turquise;
+        padding: 10px;
+        color: $light-orange;
+        background-color: $navy;
+        position: relative;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+
+        h3, h4 {
+            text-decoration: underline;
+        }
+
+        .bakasha-details {
+            margin-bottom: 10px;
+
+            .detail {
+                label {
+                    width: 250px;
+                    float: right;
+                }
+
+                input, select {
+                    float: right;
+                }
+            }
+        }
+
+        .submit {
+            @include buttonGradient;
+            position: absolute;
+            top: 30px;
+            left: 48px;
+            width: 150px;
+            height: 50px;
+            display: block;
+            border: 2px solid transparent;
+            border-radius: 1.1em;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 0 15px $light-orange;
+            color: $navy;
+
+            &::-moz-focus-inner {
+                border: 0;
+            }
+        }
+
+        .pniyot {
+            width: 100%;
+        }
+    }
+
+}
+
+.pniya {
+    padding: 10px;
+    background-color: $dark-turq;
+    margin-bottom: 10px;
+    margin-right: -10px;
+    margin-left: -10px;
+    width: 100%;
+
+    .detail {
+        label {
+            width: 150px;
+            float: right;
+        }
+
+        input, button {
+            float: right;
+        }
+
+        span {
+            float: right;
+        }
+
+        .start-filling {
+            @include buttonGradient;
+            font-weight: bold;
+        }
+
+        .enter-number {
+            color: red;
+            display:none;
+        }
+    }
+
+    .pniya-table {
+        border: 1px solid black;
+        border-collapse: collapse;
+
+        thead {
+            tr:first-child > th:last-child {
+                border-bottom: 1px solid black;
+            }
+
+            th {
+                border-left: 1px solid black;
+                border-right: 1px solid black;
+            }
+        }
+
+        tbody {
+            color: black;
+            .pniya-row {
+                background-color: white;
+
+                &:hover {
+                    background-color: #E8EDFF;
+                }
+
+                td {
+                    border: 1px solid black;
+
+                    input {
+                        width: 80px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.add-pniya, .add-row {
+    background-color: $dark-turq;
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    color: $light-orange;
+    text-align: center;
+    line-height: 45px;
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+
+.question-mark {
+    height: 28px;
+    width: 28px;
+    background-image: url(../images/question_mark_icon_blueglow.png);
+/*			background-image: url(icon-with-question-mark-hi.png);*/
+    background-size: 28px;
+    float: right;
+    position: relative;
+    margin-right: 5px;
+
+    .explanation {
+        display:none;
+        visibility: hidden;
+        width: 200px;
+        height: 250px;
+        background-color: brown;
+        position: absolute;
+        left: -205px;
+        z-index: 10;
+    }
+
+    .explanation-img {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-size: 200px auto;
+        z-index: 11;
+    }
+
+    .spinner {
+        width: 40px;
+        height: 40px;
+        background-image: url(../images/loading.gif);
+        background-size: 40px;
+        position: absolute;
+        top: 105px;
+        left: 80px;
+    }
+
+    &:hover .explanation {
+        display:block;
+        visibility: visible;
+    }
+}
+
+
+.detail.from-pniya {
+    .explanation {
+        height: 150px;
+    }
+}
+
+.detail.to-pniya {
+    .explanation {
+        height: 150px;
+    }
+}
+
+.detail.mispar-pniya {
+    .explanation {
+        height: 150px;
+    }
+}
+
+.detail.amount-pniya {
+    .explanation {
+        height: 150px
+    }
+}
+
+.detail.bakasha-date {
+    .explanation-img {
+        background-image : url(../pics/date.jpg)
+    }
+}
+
+.detail.bakasha-meeting-reason {
+    .explanation-img {
+        background-image: url(../pics/meeting_date.jpg)
+    }
+}
+
+.detail.mispar-pniya {
+    .explanation-img {
+        background-image: url(../pics/mispar_haavara.jpg)
+    }
+}
+
+.detail.from-pniya {
+    .explanation-img {
+        background-image: url(../pics/from_haavara.jpg)
+    }
+}
+
+.detail.to-pniya {
+    .explanation-img {
+        background-image: url(../pics/to_haavara.jpg)
+    }
+}
+
+.detail.amount-pniya {
+    .explanation-img {
+        background-image: url(../pics/amount_haavara.jpg)
+    }
+}
+
+.divider {
+    width: 4px;
+    height: 100%;
+    float: right;
+    border-left: 2px solid white;
+    border-right: 1px solid black;
+    cursor: col-resize;
+    position: relative;
+    z-index: 1;
+    background-color: #CCC;
+    box-shadow: -1px 0 1px #333;
+}

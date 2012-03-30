@@ -25,6 +25,7 @@ class BakashasController < ApplicationController
   # GET /bakashas/new.json
   def new
     @bakasha = Bakasha.new
+    @file = File.join "/docs/pics", File.basename(params[:file_name])
 
     respond_to do |format|
       format.html # new.html.erb

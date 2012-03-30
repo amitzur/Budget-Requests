@@ -54,7 +54,9 @@ Ksafim::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'bakashas#index'
+  root :to => 'application#index'
+
+  match '/open-budget/:id' => 'application#get_budget'
 
   # See how all your routes lay out with "rake routes"
 

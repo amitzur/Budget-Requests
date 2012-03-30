@@ -13,9 +13,11 @@
     <%= javascript_include_tag "ksafim.js" %>
 </head>
 <body dir='rtl'>
-    <div class='photo'>
-    </div>
-    <div class="divider" id="divider"></div>
+    <!--<div class='photo'>
+        <%= yield :photo %>
+    </div>-->
+    <%= yield :file %>
+    <!--<div class="divider" id="divider"></div>-->
     <div class='form-wrap'>
         <%= yield %>
     </div>
