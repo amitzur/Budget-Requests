@@ -2,7 +2,7 @@
 <html lang="he">
 <head>
     <meta charset="UTF-8">
-    <title>פניות תקציביות</title>
+    <title><%= title %></title>
     <meta name="author" content="Amit Zur">
     <%= stylesheet_link_tag "screen", :media => "screen" %>
     <%= stylesheet_link_tag "ui-lightness/jquery-ui-1.8.18.custom.css", :media => "screen" %>
@@ -13,6 +13,9 @@
     <%= javascript_include_tag "ksafim.js" %>
 </head>
 <body dir='rtl'>
+    <% flash.each do |key, value| %>
+        <div class="flash <%= key %>"><%= value %></div>
+    <% end %>
     <!--<div class='photo'>
         <%= yield :photo %>
     </div>-->

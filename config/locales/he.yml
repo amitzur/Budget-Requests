@@ -1,4 +1,11 @@
 he:
+    name: שם
+    email: דוא"ל
+    submit: כניסה
+    pniyot_taktsiviot: פניות תקציביות
+    new_user: משתמש חדש
+    do_signup: הירשם
+    welcome: ברוכים הבאים
     reshimat: רשימת הבקשות
     date_received: תאריך קבלת הבקשה
     goto: נווט

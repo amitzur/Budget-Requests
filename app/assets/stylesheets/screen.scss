@@ -393,3 +393,51 @@ $initialSidebarWidth: 360px;
     background-color: #CCC;
     box-shadow: -1px 0 1px #333;
 }
+
+
+ul.login {
+    $loginWidth: 400px;
+    background-color: white;
+    border-radius: 0.4em;
+    border: 1px solid black;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    width: $loginWidth;
+
+    .field {
+        @include clearfix;
+        $labelWidth: 100px;
+        border-top: 1px solid grey;
+        padding: 0.8em;
+        &:first-child {
+            border-top: 0;
+        }
+
+        .label {
+            width: $labelWidth;
+            float: right;
+        }
+
+        .value {
+            float: right;
+            input {
+                border: 0;
+                width: 270px;
+            }
+        }
+    }
+
+    &+.submit {
+        background-color: green;
+        border-radius: 0.4em;
+        color: white;
+        font-weight: bold;
+        width: $loginWidth;
+        border: 1px solid black;
+        margin-top: 10px;
+        height: 40px;
+        line-height: 40px;
+        font-size: 1.1em;
+    }
+}

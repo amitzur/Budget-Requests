@@ -60,6 +60,7 @@ Ksafim::Application.routes.draw do
   root :to => 'application#index'
 
   match '/open-budget/:id' => 'application#get_budget'
+  match '/raw', :to => 'application#raw'
 
   # See how all your routes lay out with "rake routes"
 
