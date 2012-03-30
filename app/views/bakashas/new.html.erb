@@ -1,10 +1,10 @@
 <div class='form'>
     <div class='title-icon'></div>
-    <h1 class='title'>אם כבר הגעת לכאן...</h1>
-    <h2 class='subtitle'>יהיה נחמד אם תואיל/י למלא את הפרטים הבאים בהתאם לתמונות מימין:</h2>
+    <h1 class='title'><%=t :if_you_came %>...</h1>
+    <h2 class='subtitle'><%=t :it_would_be_nice %>:</h2>
     <div class='bakasha'>
-        <h3>בקשה להעברה תקציבית</h3>
+        <h3><%=t :bakasha %></h3>
         <%= render 'form' %>
-        <div id='add-pniya' class='add-pniya' title='הוסף פנייה'>+</div>
+        <div id='add-pniya' class='add-pniya' title='<%=t :hosef %>'>+</div>
     </div>
 </div>

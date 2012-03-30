@@ -1,16 +1,16 @@
-<h1>רשימת הבקשות</h1>
+<h1><%=t :reshimat %></h1>
 
 <ul>
 <% @bakashas.each do |bakasha| %>
   <li>
-    <label>תאריך קבלת הבקשה</label>
+    <label><%=t :date_received %></label>
     <%= bakasha.recv_date %>
-    <%= bakasha.reason %>
-    <%= link_to 'נווט', bakasha %>
-    <%= link_to 'ערוך', edit_bakasha_path(bakasha) %>
-    <%= link_to 'מחק', bakasha, confirm: 'Are you sure?', method: :delete %>
+    <%= bakasha.meeting_reason %>
+    <%= link_to t(:goto), bakasha %>
+    <%= link_to t(:edit), edit_bakasha_path(bakasha) %>
+    <%= link_to t(:delete), bakasha, confirm: 'Are you sure?', method: :delete %>
   </li>
 <% end %>
 </ul>
 
-<%= link_to 'בקשה חדשה', new_bakasha_path %>
+<%= link_to t(:new_bakasha), new_bakasha_path %>
