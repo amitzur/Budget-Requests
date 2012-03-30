@@ -1,4 +1,5 @@
 Ksafim::Application.routes.draw do
+  
   resources :pniyas
 
   resources :bakashas
@@ -6,7 +7,9 @@ Ksafim::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-  resources :bakasha
+  resources :users
+ 
+  match '/signup', :to => 'users#new'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
