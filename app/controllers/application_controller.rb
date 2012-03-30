@@ -4,8 +4,4 @@ class ApplicationController < ActionController::Base
   def index
 
   end
-
-  def new
-    puts "Got it!!!!!!!!!!!!!!!!!!!!!!!"
-  end
 end

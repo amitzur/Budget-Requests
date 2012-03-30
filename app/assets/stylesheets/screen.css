@@ -53,10 +53,11 @@ h3, h4 {
 /* line 84, ../sass/screen.scss */
 .form-wrap {
   position: absolute;
-  right: 360px;
+  right: 367px;
   top: 0;
   left: 0;
   bottom: 0;
+
   background-color: #f5db58;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -91,7 +92,7 @@ h3, h4 {
 }
 /* line 122, ../sass/screen.scss */
 .form-wrap .title-icon {
-  background-image: url(../images/Document-icon.png);
+  background-image: url(../../../public/images/Document-icon.png);
   width: 150px;
   height: 150px;
   background-size: 150px auto;
@@ -252,7 +253,7 @@ h3, h4 {
 .question-mark {
   height: 28px;
   width: 28px;
-  background-image: url(../images/question_mark_icon_blueglow.png);
+  background-image: url(../../../public/images/question_mark_icon_blueglow.png);
   /*			background-image: url(icon-with-question-mark-hi.png);*/
   background-size: 28px;
   float: right;
@@ -282,7 +283,7 @@ h3, h4 {
 .question-mark .spinner {
   width: 40px;
   height: 40px;
-  background-image: url(../images/loading.gif);
+  background-image: url(../../../public/images/loading.gif);
   background-size: 40px;
   position: absolute;
   top: 105px;

@@ -1,5 +1,5 @@
 class Pniya < ActiveRecord::Base
-
-belongs_to :bakasha
+    attr_accessible :mispar
+    belongs_to :bakasha
 
 end

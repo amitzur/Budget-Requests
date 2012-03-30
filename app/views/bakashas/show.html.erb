@@ -1,21 +1,23 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+    <p class="notice">הבקשה נקלטה במערכת</p>
+<% end %>
 
 <p>
-  <b>Recv date:</b>
+  <b>תאריך הקבלה:</b>
   <%= @bakasha.recv_date %>
 </p>
 
 <p>
-  <b>Reason:</b>
-  <%= @bakasha.reason %>
+  <b>סיבת הבקשה:</b>
+  <%= @bakasha.meeting_reason %>
 </p>
 
 <% @bakasha.pniyas.each do |pniya| %>
 <p>
-  <b>Mispar Pniya:</b>
+  <b>מספר פנייה:</b>
   <%= pniya.mispar %>
 </p>
 <% end %>
 
-<%= link_to 'Edit', edit_bakasha_path(@bakasha) %> |
-<%= link_to 'Back', bakashas_path %>
+<%= link_to 'ערוך', edit_bakasha_path(@bakasha) %> |
+<%= link_to 'חזרה', bakashas_path %>

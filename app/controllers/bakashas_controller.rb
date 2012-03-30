@@ -44,7 +44,7 @@ class BakashasController < ApplicationController
 
     respond_to do |format|
       if @bakasha.save
-        format.html { redirect_to @bakasha, notice: 'Bakasha was successfully created.' }
+        format.html { redirect_to @bakasha, :notice => true }
         format.json { render json: @bakasha, status: :created, location: @bakasha }
       else
         format.html { render action: "new" }

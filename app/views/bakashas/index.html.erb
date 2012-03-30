@@ -1,25 +1,16 @@
-<h1>Listing bakashas</h1>
+<h1>רשימת הבקשות</h1>
 
-<table>
-  <tr>
-    <th>Recv date</th>
-    <th>Reason</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
+<ul>
 <% @bakashas.each do |bakasha| %>
-  <tr>
-    <td><%= bakasha.recv_date %></td>
-    <td><%= bakasha.reason %></td>
-    <td><%= link_to 'Show', bakasha %></td>
-    <td><%= link_to 'Edit', edit_bakasha_path(bakasha) %></td>
-    <td><%= link_to 'Destroy', bakasha, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
+  <li>
+    <label>תאריך קבלת הבקשה</label>
+    <%= bakasha.recv_date %>
+    <%= bakasha.reason %>
+    <%= link_to 'נווט', bakasha %>
+    <%= link_to 'ערוך', edit_bakasha_path(bakasha) %>
+    <%= link_to 'מחק', bakasha, confirm: 'Are you sure?', method: :delete %>
+  </li>
 <% end %>
-</table>
+</ul>
 
-<br />
-
-<%= link_to 'New Bakasha', new_bakasha_path %>
+<%= link_to 'בקשה חדשה', new_bakasha_path %>

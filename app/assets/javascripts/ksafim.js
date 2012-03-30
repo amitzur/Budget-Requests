@@ -11,6 +11,8 @@
         createTemplate();
         createWidgets();
         createBindings();
+
+        pniyaNum = $("div[id^=pniya-]").length
     });
 
     function createTemplate() {
@@ -22,7 +24,7 @@
     }
 
     function createWidgets() {
-        $("#bakasha-date").bind("keydown", function(e) { e.preventDefault(); }).datepicker();
+        $("#bakasha_recv_date").bind("keydown", function(e) { e.preventDefault(); }).datepicker();
     }
 
     function createBindings() {
@@ -80,13 +82,12 @@
         return $(Template.pniya({ id: pniyaNum++ }));
     }
 
-    var Template, pniyaNum = 0;
+    var Template, pniyaNum;
 
     function resizeCol(e) {
-        console.log("pageX: " + e.pageX + ", clientX: " + e.clientX + ", screenX: " + e.screenX + ", layerX: " + e.layerX);
         var distance = window.innerWidth - e.pageX;
         $(".photo").css("width", distance);
-        $(".form-wrap").css("right", distance);
+        $(".form-wrap").css("right", distance + 8);
     }
 
     function addRow($pniyaTable) {
