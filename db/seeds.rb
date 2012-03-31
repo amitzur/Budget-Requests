@@ -9,6 +9,8 @@
 
 Dir.foreach("public/docs/pdf") {
   |x|
-  s = Scan.new(:filename => x)
-  s.save
+  unless x == '.' or x == '..'
+    s = Scan.new(:filename => x)
+    s.save
+  end
 }

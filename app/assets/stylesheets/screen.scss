@@ -94,6 +94,7 @@ $initialSidebarWidth: 360px;
 header {
   position: relative;
   @include boxSizing;
+  min-height: 120px;
   padding: 30px 0;
   .title {
     background-color: $light-orange;
@@ -487,7 +488,7 @@ ul.login {
   
   li {
     border-top: 1px solid grey;
-    padding: 3px;
+    padding: 4px;
 
     &:first-child {
       border-top: 0;
