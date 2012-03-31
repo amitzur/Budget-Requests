@@ -79,6 +79,16 @@
         $("input").live("keypress", function(e) {
             if (e.keyCode == 13) e.preventDefault();
         })
+
+        $("input.prat").live("change", function() {
+            var $pratName = $(this).closest(".pniya").find(".prat-name");
+            if ($(this).val().trim() != "") {
+                var val = $(this).val()[0] == "0" && $(this).val()[1] == "0" ? $(this).val() : "00" + $(this).val();
+                $.get("/open-budget/" + val, function(data) {
+                    $pratName.text(data.haavara_name);
+                });
+            }
+        });
     }
 
     var Template, pniyaNum;

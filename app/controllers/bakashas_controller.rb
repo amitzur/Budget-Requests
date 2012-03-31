@@ -25,7 +25,9 @@ class BakashasController < ApplicationController
   # GET /bakashas/new.json
   def new
     @bakasha = Bakasha.new
-    @file = '/docs/pdf/' + params[:filename]
+    unless params[:filename].nil?
+      @file = '/docs/pdf/' + params[:filename]
+    end
     @heading = t(:if_you_came)
     @subheading = t(:it_would_be_nice)
 

@@ -31,7 +31,9 @@
     <% end %>
     <%= link_to_function '+', 'KsafimApi.createPniya();', :class => 'add-pniya', :title => t(:hosef), :id => 'add-pniya' %>
   </div>
-  <iframe class="file_iframe" src="<%= @file %>"></iframe>
+  <% unless @file.nil? %>
+    <iframe class="file_iframe" src="<%= @file %>"></iframe>
+  <% end %>
 </div>
 
 <% content_for :templates do %>
@@ -52,8 +54,8 @@
 
     <script type="text/x-handlebar-template" id="pniya-row-template">
       <tr class="pniya-row">
-        <td><input type="text" name='bakasha[pniyas_attributes][{{pniya_id}}][haavaras_attributes][{{id}}][prat]'/></td>
-        <td>&nbsp;</td>
+        <td><input type="text" class="prat" name='bakasha[pniyas_attributes][{{pniya_id}}][haavaras_attributes][{{id}}][prat]'/></td>
+        <td class="prat-name">&nbsp;</td>
         <td><span>מ-</span><br><span>ל-</span></td>
         <td>
           <input type="text" name="bakasha[pniyas_attributes][{{pniya_id}}][haavaras_attributes][{{id}}][hotsaa_from]"/><input type="text" name="bakasha[pniyas_attributes][{{pniya_id}}][haavaras_attributes][{{id}}][hotsaa_to]"/>
