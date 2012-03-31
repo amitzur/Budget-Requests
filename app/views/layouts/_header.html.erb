@@ -1,0 +1,11 @@
+<header>
+  <img class="title-icon" src="/assets/Document-icon.png"/>
+  <div class="title">
+    <h1><%=t @heading %></h1>
+    <div class="actions">
+    </div>
+  </div>
+  <% unless @subheading.nil? %>
+    <h2 class='subtitle'><%=t @subheading %></h2>
+  <% end %>
+</header>

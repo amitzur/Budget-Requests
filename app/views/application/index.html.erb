@@ -1,0 +1,5 @@
+<ul class='scans'>
+<% @scans.each do |scan| %>
+     <li><a href="/bakashas/new?filename=<%= scan.filename %>"><%= scan.filename %></a></li>
+<% end %>
+</ul>
