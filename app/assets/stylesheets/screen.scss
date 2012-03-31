@@ -44,6 +44,50 @@ $navy		: #012D38;
   box-sizing: $val;
 }
 
+@mixin smallForm($formWidth: 400px) {
+  $loginWidth: 400px;
+  background-color: white;
+  border-radius: 0.4em;
+  border: 1px solid black;
+  width: $formWidth;
+
+  .field {
+    @include clearfix;
+    $labelWidth: 100px;
+    border-top: 1px solid grey;
+    padding: 0.8em;
+    &:first-child {
+      border-top: 0;
+    }
+
+    .label {
+      width: $labelWidth;
+      float: right;
+    }
+
+    .value {
+      float: right;
+      input {
+        border: 0;
+        width: 270px;
+      }
+    }
+  }
+
+  &+.submit {
+    background-color: green;
+    border-radius: 0.4em;
+    color: white;
+    font-weight: bold;
+    width: $loginWidth;
+    border: 1px solid black;
+    margin-top: 10px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1.1em;
+  }
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -432,50 +476,7 @@ header {
 
 
 ul.login {
-    $loginWidth: 400px;
-    background-color: white;
-    border-radius: 0.4em;
-    border: 1px solid black;
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-    width: $loginWidth;
-
-    .field {
-        @include clearfix;
-        $labelWidth: 100px;
-        border-top: 1px solid grey;
-        padding: 0.8em;
-        &:first-child {
-            border-top: 0;
-        }
-
-        .label {
-            width: $labelWidth;
-            float: right;
-        }
-
-        .value {
-            float: right;
-            input {
-                border: 0;
-                width: 270px;
-            }
-        }
-    }
-
-    &+.submit {
-        background-color: green;
-        border-radius: 0.4em;
-        color: white;
-        font-weight: bold;
-        width: $loginWidth;
-        border: 1px solid black;
-        margin-top: 10px;
-        height: 40px;
-        line-height: 40px;
-        font-size: 1.1em;
-    }
+    @include smallForm;
 }
 
 .content {
@@ -507,8 +508,19 @@ ul.login {
 }
 
 .file_frame {
-  width: 0;
-  height: 0;
-  display: none;
+  width: 100%;
+  height: 400px;
+
   position: absolute;
+}
+
+.signin-wrap {
+  text-align: center;
+  h1 {
+    margin-bottom: 0.5em;
+  }
+  ul.signin {
+    @include smallForm;
+    margin: 0 auto;
+  }
 }

@@ -33,7 +33,7 @@
     <%= link_to_function '+', 'KsafimApi.createPniya();', :class => 'add-pniya', :title => t(:hosef), :id => 'add-pniya' %>
   </div>
   <% unless @file.nil? %>
-    <iframe class="file_iframe" src="<%= @file %>"></iframe>
+    <iframe class="file_frame" src="<%= @file %>"></iframe>
   <% end %>
 </div>
 

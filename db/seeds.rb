@@ -7,9 +7,10 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 
+Scan.delete_all
 Dir.foreach("public/docs/pdf") {
   |x|
-  unless x == '.' or x == '..'
+  if x.include? 'Knesset'
     s = Scan.new(:filename => x)
     s.save
   end

@@ -19,6 +19,14 @@
             <%= f.text_field :email %>
         </div>
     </li>
+    <li class="field">
+        <div class="label">
+            <%= f.label :password, t(:password) %>
+        </div>
+        <div class="value">
+            <%= f.text_field :password %>
+        </div>
+    </li>
 </ul>
 <button class="submit"><%=t :do_signup %></button>
 <% end %>

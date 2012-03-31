@@ -1,5 +1,7 @@
 Ksafim::Application.routes.draw do
   
+  get "sessions/new"
+
   resources :pniyas
 
   resources :bakashas
@@ -8,8 +10,12 @@ Ksafim::Application.routes.draw do
   # first created -> highest priority.
 
   resources :users
+  resources :sessions, :only => [:new, :create, :destroy]
  
   match '/signup', :to => 'users#new'
+  match '/signin', :to => 'sessions#new'
+  match '/signup', :to => 'sessions#destroy'
+
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

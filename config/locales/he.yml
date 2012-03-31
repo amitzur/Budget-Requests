@@ -5,6 +5,7 @@ he:
     pniyot_taktsiviot: פניות תקציביות
     new_user: משתמש חדש
     do_signup: הירשם
+    do_signin: היכנס
     welcome: ברוכים הבאים
     welcome_desc: במערכת זו תוכל להשתתף ביצירת ועריכת מידע ציבורי, וע"י כך לעזור לציבור לדעת יותר
     reshimat: רשימת הבקשות
@@ -22,3 +23,6 @@ he:
     reason_seifim: שינויים בין סעיפים
     reason_shimush: שימוש בעודפי תקציב
     reason_reserve: שימוש ברזרבה הכללית
+    whats_your_mail: מה המייל שלך?
+    sign_in: כניסה למערכת
+

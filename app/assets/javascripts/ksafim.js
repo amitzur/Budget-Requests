@@ -81,7 +81,7 @@
         })
 
         $("input.prat").live("change", function() {
-            var $pratName = $(this).closest(".pniya").find(".prat-name");
+            var $pratName = $(this).closest("td").next(".prat-name");
             if ($(this).val().trim() != "") {
                 var val = $(this).val()[0] == "0" && $(this).val()[1] == "0" ? $(this).val() : "00" + $(this).val();
                 $.get("/open-budget/" + val, function(data) {
