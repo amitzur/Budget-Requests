@@ -52,6 +52,7 @@ html {
 
 body {
     @include backgroundGradient;
+  padding: 10px;
 }
 
 h1 {

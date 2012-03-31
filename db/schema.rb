@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120331080653) do
+ActiveRecord::Schema.define(:version => 20120331135338) do
 
   create_table "bakashas", :force => true do |t|
     t.date     "recv_date"
@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(:version => 20120331080653) do
     t.datetime "updated_at",     :null => false
     t.string   "meeting_reason"
     t.string   "file_name"
+    t.integer  "scan_id"
   end
 
   create_table "haavaras", :force => true do |t|

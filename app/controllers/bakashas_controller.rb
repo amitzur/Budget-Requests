@@ -25,8 +25,10 @@ class BakashasController < ApplicationController
   # GET /bakashas/new.json
   def new
     @bakasha = Bakasha.new
-    unless params[:filename].nil?
-      @file = '/docs/pdf/' + params[:filename]
+    unless params[:sid].nil?
+      scan = Scan.find(params[:sid])
+      @file = '/docs/pdf/' + scan[:filename]
+      @sid = params[:sid]
     end
     @heading = t(:if_you_came)
     @subheading = t(:it_would_be_nice)
