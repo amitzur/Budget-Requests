@@ -139,6 +139,7 @@ $initialSidebarWidth: 360px;
 header {
   position: relative;
   @include boxSizing;
+  @include clearfix;
   min-height: 120px;
   padding: 30px 0;
   .title {
