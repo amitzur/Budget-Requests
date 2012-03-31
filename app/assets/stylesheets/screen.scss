@@ -189,7 +189,6 @@ header {
 .form {
   width: 100%;
   height: 100%;
-  overflow: auto;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
@@ -511,8 +510,9 @@ ul.login {
 .file_frame {
   width: 100%;
   height: 400px;
-
-  position: absolute;
+  margin-top: 10px;
+  border: 5px solid $turquise;
+  @include boxSizing;
 }
 
 .signin-wrap {

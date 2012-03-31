@@ -16,4 +16,9 @@ class User < ActiveRecord::Base
 
   validates :name, :presence => true, :length => { :maximum => 50 }
   validates :email, :presence => true, :format => { :with => email_regex }, :uniqueness => { :case_sensitive => false }
+
+  def self.authenticate_with_salt(id, cookie_salt)
+    user = find_by_id(id)
+    (user && user.salt == cookie_salt) ? user : nil
+  end
 end
