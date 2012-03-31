@@ -26,7 +26,7 @@
         createTemplate();
         createWidgets();
         createBindings();
-
+        adjustPdfFrame();
         pniyaNum = $("div[id^=pniya-]").length
     });
 
@@ -110,4 +110,12 @@
         $(Template.row({ pniya_id : id, id: row })).appendTo($pniya.find(".pniya-table").children("tbody"));
     }
 
+    function adjustPdfFrame() {
+        $frame = $(".file-frame");
+        var info = perform_acrobat_detection();
+        if (info.acrobat)
+            $frame.css({ width: "100%", display: "block", height: "400px"});
+        else
+            $frame.css({ width: "0", display: "none", height: "0"});
+    }
 })(jQuery);
