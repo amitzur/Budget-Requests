@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120330124336) do
+ActiveRecord::Schema.define(:version => 20120331080653) do
 
   create_table "bakashas", :force => true do |t|
     t.date     "recv_date"
@@ -44,6 +44,12 @@ ActiveRecord::Schema.define(:version => 20120330124336) do
   create_table "pniyas", :force => true do |t|
     t.integer  "mispar"
     t.integer  "bakasha_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "scans", :force => true do |t|
+    t.string   "filename"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

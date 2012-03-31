@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+
+Dir.foreach("public/docs/pdf") {
+  |x|
+  s = Scan.new(:filename => x)
+  s.save
+}

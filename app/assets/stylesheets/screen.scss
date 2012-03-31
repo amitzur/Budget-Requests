@@ -1,4 +1,4 @@
-//@import "compass/reset";
+@import "compass/reset";
 
 
 $light-orange: #FFF3B6;
@@ -32,6 +32,18 @@ $navy		: #012D38;
     background-image: -moz-linear-gradient(top center, $banana, $banana 49%, $light-orange 51%, $light-orange);
 }
 
+@mixin backgroundGradient {
+  background-image: -webkit-gradient(linear, left top, left bottom, from($banana) , color-stop(0.2, $light-orange), to($light-orange));
+  background-image: -moz-linear-gradient(top center, $banana, $light-orange 20%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5DB58', endColorstr='#FFF3B6');
+}
+
+@mixin boxSizing($val:border-box) {
+  -moz-box-sizing: $val;
+  -webkit-box-sizing: $val;
+  box-sizing: $val;
+}
+
 html {
     height: 100%;
     width: 100%;
@@ -39,13 +51,12 @@ html {
 }
 
 body {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    margin: 0;
-    @include userSelectNone;
+    @include backgroundGradient;
+}
+
+h1 {
+  font-size: 2em;
+  font-weight: bold;
 }
 
 h2 {
@@ -80,6 +91,42 @@ $initialSidebarWidth: 360px;
     }
 }
 
+header {
+  position: relative;
+  @include boxSizing;
+  padding: 30px 0;
+  .title {
+    background-color: $light-orange;
+    -webkit-border-radius: 15px 0 0 15px;
+    -moz-border-radius: 15px 0 0 15px;
+    border: 1px solid $dark-turq;
+    box-shadow: -5px 5px 5px $dark-turq;
+    margin: 0 70px 0 0;
+    color: $navy;
+    padding: 8px;
+  }
+
+  .subtitle {
+    color: $navy;
+    margin-top: 20px;
+  }
+
+  .title-icon {
+    background-image: url(/assets/Document-icon.png);
+    width: 150px;
+    height: 150px;
+    background-size: 150px auto;
+    float: right;
+    position: relative;
+    top: -30px;
+    z-index: 1;
+  }
+
+  .actions {
+    float: left;
+  }
+}
+
 
 .form-wrap {
     position: absolute;
@@ -89,108 +136,76 @@ $initialSidebarWidth: 360px;
     left: 0;
     bottom: 0;
     background-color: $banana;
-    -moz-box-sizing: border-box;
-    -webkit-box-sizing: border-box;
-    box-sizing: border-box;
-    background-image: -webkit-gradient(linear, left top, left bottom, from($banana) , color-stop(0.2, $light-orange), to($light-orange));
-    background-image: -moz-linear-gradient(top center, $banana, $light-orange 20%);
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#F5DB58', endColorstr='#FFF3B6');
+    @include boxSizing;
+}
 
-    .form {
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        -moz-box-sizing: border-box;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        padding: 15px;
-    }
+.form {
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
 
-    .title {
-        background-color: $light-orange;
-        -webkit-border-radius: 15px 0 0 15px;
-        -moz-border-radius: 15px 0 0 15px;
-        border: 1px solid $dark-turq;
-        box-shadow: -5px 5px 5px $dark-turq;
-        margin-right: 70px;
-        color: $navy;
-    }
 
-    .subtitle {
-        color: $navy;
-    }
+.detail {
+  @include clearfix;
+}
 
-    .title-icon {
-        background-image: url(../images/Document-icon.png);
-        width: 150px;
-        height: 150px;
-        background-size: 150px auto;
-        float: right;
-        position: relative;
-        top: -3px;
-        z-index: 1;
-    }
+.bakasha {
+  width: 100%;
+  border-radius: 10px;
+  border: 5px solid $turquise;
+  padding: 10px;
+  color: $light-orange;
+  background-color: $navy;
+  position: relative;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
 
+  h3, h4 {
+    text-decoration: underline;
+  }
+
+  .bakasha-details {
+    margin-bottom: 10px;
 
     .detail {
-        @include clearfix;
+      label {
+        width: 250px;
+        float: right;
+      }
+
+      input, select {
+        float: right;
+      }
     }
+  }
 
-    .bakasha {
-        width: 100%;
-        border-radius: 10px;
-        border: 5px solid $turquise;
-        padding: 10px;
-        color: $light-orange;
-        background-color: $navy;
-        position: relative;
-        box-sizing: border-box;
-        -moz-box-sizing: border-box;
+  .submit {
+    @include buttonGradient;
+    position: absolute;
+    top: 30px;
+    left: 48px;
+    width: 150px;
+    height: 50px;
+    display: block;
+    border: 2px solid transparent;
+    border-radius: 1.1em;
+    font-weight: bold;
+    font-size: 1.2em;
+    box-shadow: 0 0 15px $light-orange;
+    color: $navy;
 
-        h3, h4 {
-            text-decoration: underline;
-        }
-
-        .bakasha-details {
-            margin-bottom: 10px;
-
-            .detail {
-                label {
-                    width: 250px;
-                    float: right;
-                }
-
-                input, select {
-                    float: right;
-                }
-            }
-        }
-
-        .submit {
-            @include buttonGradient;
-            position: absolute;
-            top: 30px;
-            left: 48px;
-            width: 150px;
-            height: 50px;
-            display: block;
-            border: 2px solid transparent;
-            border-radius: 1.1em;
-            font-weight: bold;
-            font-size: 1.2em;
-            box-shadow: 0 0 15px $light-orange;
-            color: $navy;
-
-            &::-moz-focus-inner {
-                border: 0;
-            }
-        }
-
-        .pniyot {
-            width: 100%;
-        }
+    &::-moz-focus-inner {
+      border: 0;
     }
+  }
 
+  .pniyot {
+    width: 100%;
+  }
 }
 
 .pniya {
@@ -200,6 +215,14 @@ $initialSidebarWidth: 360px;
     margin-right: -10px;
     margin-left: -10px;
     width: 100%;
+
+    .mispar-pniya {
+      &.disabled {
+        background-color: silver;
+        color: grey;
+        border: 2px solid $navy;
+      }
+    }
 
     .detail {
         label {
@@ -217,6 +240,9 @@ $initialSidebarWidth: 360px;
 
         .start-filling {
             @include buttonGradient;
+            border: 1px solid $navy;
+            margin-right: 6px;
+            border-radius: 0.3em;
             font-weight: bold;
         }
 
@@ -238,6 +264,7 @@ $initialSidebarWidth: 360px;
             th {
                 border-left: 1px solid black;
                 border-right: 1px solid black;
+                text-align: center;
             }
         }
 
@@ -273,13 +300,15 @@ $initialSidebarWidth: 360px;
     line-height: 45px;
     cursor: pointer;
     border-radius: 0.5em;
+    text-decoration: none;
+    display: block;
+    outline: 0 none;
 }
 
 .question-mark {
     height: 28px;
     width: 28px;
-    background-image: url(../images/question_mark_icon_blueglow.png);
-/*			background-image: url(icon-with-question-mark-hi.png);*/
+    background-image: url(/assets/question_mark_icon_blueglow.png);
     background-size: 28px;
     float: right;
     position: relative;
@@ -307,7 +336,7 @@ $initialSidebarWidth: 360px;
     .spinner {
         width: 40px;
         height: 40px;
-        background-image: url(../images/loading.gif);
+        background-image: url(/assets/loading.gif);
         background-size: 40px;
         position: absolute;
         top: 105px;
@@ -347,37 +376,37 @@ $initialSidebarWidth: 360px;
 
 .detail.bakasha-date {
     .explanation-img {
-        background-image : url(../pics/date.jpg)
+        background-image : url(/assets/date.jpg)
     }
 }
 
 .detail.bakasha-meeting-reason {
     .explanation-img {
-        background-image: url(../pics/meeting_date.jpg)
+        background-image: url(/assets/meeting_date.jpg)
     }
 }
 
 .detail.mispar-pniya {
     .explanation-img {
-        background-image: url(../pics/mispar_haavara.jpg)
+        background-image: url(/assets/mispar_haavara.jpg)
     }
 }
 
 .detail.from-pniya {
     .explanation-img {
-        background-image: url(../pics/from_haavara.jpg)
+        background-image: url(/assets/from_haavara.jpg)
     }
 }
 
 .detail.to-pniya {
     .explanation-img {
-        background-image: url(../pics/to_haavara.jpg)
+        background-image: url(/assets/to_haavara.jpg)
     }
 }
 
 .detail.amount-pniya {
     .explanation-img {
-        background-image: url(../pics/amount_haavara.jpg)
+        background-image: url(/assets/amount_haavara.jpg)
     }
 }
 
@@ -440,4 +469,39 @@ ul.login {
         line-height: 40px;
         font-size: 1.1em;
     }
+}
+
+.content {
+  padding: 10px;
+}
+
+@mixin list {
+  border: 1px solid black;
+  border-radius: 0.3em;
+  background-color: white;
+  
+  li {
+    border-top: 1px solid grey;
+    padding: 3px;
+
+    &:first-child {
+      border-top: 0;
+    }
+  }
+
+}
+
+.scans {
+  @include list;
+  width: 400px;
+  a {
+    text-decoration: none;
+  }
+}
+
+.file_frame {
+  width: 0;
+  height: 0;
+  display: none;
+  position: absolute;
 }

@@ -5,8 +5,23 @@
  * Time: 10:27 PM
  * To change this template use File | Settings | File Templates.
  */
-
 (function($) {
+    window.KsafimApi = {
+        createPniya: function() {
+            var $pniya = $(Template.pniya({ id: pniyaNum++ })).hide();
+            $(".pniyot").append($pniya);
+            $pniya.fadeIn(800, function() {
+                $(this).find("input").focus().bind("keypress", function(e) {
+                    if (e.keyCode == 13) {
+                        $(this).next("button").click();
+                        e.preventDefault();
+                    }
+                });
+            });
+        }
+    };
+
+
     $(function() {
         createTemplate();
         createWidgets();
@@ -28,21 +43,9 @@
     }
 
     function createBindings() {
-        $("#add-pniya").click(function() {
-            var $pniya = createPniya().hide();
-            $(".pniyot").append($pniya);
-            $pniya.fadeIn(800, function() {
-                $(this).find("input").focus().bind("keypress", function(e) {
-                    if (e.keyCode == 13) {
-                        $(this).next("button").click();
-                        e.preventDefault();
-                    }
-                });
-            });
-        });
 
         $(".add-row").live("click", function() {
-            addRow($(this).closest(".pniya").find(".pniya-table"));
+            addRow($(this).closest(".pniya"));
         });
 
         $("#divider").bind("mousedown", function() {
@@ -64,10 +67,10 @@
             }
             id = Number(id);
 
-            $input.attr("disabled", true);
+            $input.bind("keypress mousedown", function() { return false; }).addClass("disabled");
             var $pniyaTable = $(Template.pniyaTable({ id: id }));
             $pniya.append($pniyaTable);
-            addRow($pniyaTable);
+            addRow($pniya);
             $this.remove();
             $(".enter-number", $pniya).remove();
             e.preventDefault();
@@ -78,10 +81,6 @@
         })
     }
 
-    function createPniya() {
-        return $(Template.pniya({ id: pniyaNum++ }));
-    }
-
     var Template, pniyaNum;
 
     function resizeCol(e) {
@@ -90,15 +89,15 @@
         $(".form-wrap").css("right", distance + 8);
     }
 
-    function addRow($pniyaTable) {
-        var id = $pniyaTable.attr("id").split("-")[2], row = $pniyaTable.data("rows");
+    function addRow($pniya) {
+        var id = $pniya.attr("id").split("-")[1], row = $pniya.data("rows");
         if (!row) {
             row = 1;
         } else {
             row++;
         }
-        $pniyaTable.data("rows", row);
-        $(Template.row({ id : id, row: row })).appendTo($pniyaTable.children("tbody"));
+        $pniya.data("rows", row);
+        $(Template.row({ pniya_id : id, id: row })).appendTo($pniya.find(".pniya-table").children("tbody"));
     }
 
 })(jQuery);

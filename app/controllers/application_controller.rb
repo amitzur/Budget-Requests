@@ -2,7 +2,13 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   def index
-
+    @scans = Scan.all
+    #@scansArr = Array.new
+    #scans.each do |scan|
+    #  @scansArr << { :url => '/bakashas/new', :scan => scan }
+    #end
+    @heading = 'welcome'
+    @subheading = 'welcome_desc'
   end
 
   def raw
